@@ -174,6 +174,7 @@ class AsyncPubSubManager(AsyncManager):
                             await self._handle_disconnect(data)
                         elif data['method'] == 'close_room':
                             await self._handle_close_room(data)
+                        return data
             except asyncio.CancelledError:  # pragma: no cover
                 break
             except:  # pragma: no cover
